@@ -2,28 +2,36 @@ import sys
 from arquivo import abrir,gravar
 import time
 def cocktail_sort(numeros:list):
-    inicio=time.time()
-    for i in range(len(numeros) // 2):
-        troca=False
-        for j in range(i,len(numeros)-i-1):
-            if numeros[j]>numeros[j+1]:
-                #trocar os dois
-                numeros[j],numeros[j+1]=numeros[j+1],numeros[j]
-                troca=True
-                
-        if not troca: break
-        
-        troca=False
-        
-        for j in range(int(len(numeros)-2-i),i-1,-1):
-            if numeros[j]>numeros[j+1]:
-                numeros[j],numeros[j+1]=numeros[j+1],numeros[j]
-                troca=True
-                
-        if not troca: break
+    inicio_tempo=time.time()
+    trocado=True
+    n=len(numeros)
+    inicio=0
+    fim=n-1
     
-    fim=time.time()
-    gravar(sys.argv[2],fim-inicio)
+    while(trocado == True):
+        trocado=False
+        
+        for i in range(inicio,fim):
+            if(numeros[i]>numeros[i+1]):
+                numeros[i],numeros[i+1]=numeros[i+1],numeros[i] #troca
+                trocado=True
+                
+        if trocado==False: break
+        
+        trocado=False
+        
+        fim-=1
+        
+        for i in range(fim-1,inicio-1,-1):
+            if (numeros[i]>numeros[i+1]):
+                numeros[i],numeros[i+1]=numeros[i+1],numeros[i]
+                trocado=True
+                
+        inicio+=1
+        
+        
+    fim_tempo=time.time()
+    gravar(sys.argv[2],(fim_tempo-inicio_tempo)*1000)#em ms
         
     print('Lista Ordenada:\n',numeros)
 
