@@ -105,10 +105,3 @@ if __name__ == "__main__":
     except ValueError:
         print("Erro ao ler os dados. Verifique se o arquivo contém apenas números válidos.")
 
-cd meu_trabalho_algoritmos
-git init
-git remote add origin https://github.com/SEU_USUARIO/NOME_REPOSITORIO.git
-git add .
-git commit -m "Primeiro commit do trabalho de algoritmos"
-git branch -M main
-git push -u origin main
