@@ -3,7 +3,7 @@ import time
 from arquivo import abrir, gravar
 
 def shell_sort(arr):
-    start = time.time()
+    start = time.perf_counter()
     n = len(arr)
     gap = n // 2 
     while gap > 0:
@@ -16,7 +16,7 @@ def shell_sort(arr):
             arr[j] = temp
         gap //= 2
 
-    end=time.time()
+    end=time.perf_counter()
     gravar(sys.argv[2],(end-start)*1000)
     print('Lista Ordenada:\n',arr)
     return arr
