@@ -1,7 +1,6 @@
 import sys
 import time
 
-# Python3 program to perform basic timSort
 MIN_MERGE = 32
 
 
