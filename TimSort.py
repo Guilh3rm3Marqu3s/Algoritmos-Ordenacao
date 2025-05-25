@@ -1,6 +1,6 @@
 import sys
 import time
-
+from arquivo import abrir,gravar
 MIN_MERGE = 32
 
 
@@ -70,11 +70,7 @@ def timSort(arr):
         size = 2 * size
 
 
-def ler_arquivo(nome_arquivo):
-    with open(nome_arquivo, 'r') as f:
-        conteudo = f.read()
-    numeros = list(map(int, conteudo.replace(',', ' ').split()))
-    return numeros
+
 
 
 if __name__ == "__main__":
@@ -83,7 +79,7 @@ if __name__ == "__main__":
     nome_saida_tempo = sys.argv[2]
 
     try:
-        arr = ler_arquivo(nome_entrada)
+        arr = abrir(nome_entrada)
         print("\nArray fornecido:\n")
         print(arr)
 
@@ -94,11 +90,10 @@ if __name__ == "__main__":
         print("\nArray ordenado:\n")
         print(arr)
 
-        tempo_execucao = fim - inicio
+        tempo_execucao = (fim - inicio) *1000 #em ms
 
-        with open(nome_saida_tempo, 'a') as f:
-            f.write(f"Tempo: {tempo_execucao:.6f} segundos\n")
-
+        gravar(nome_saida_tempo,tempo_execucao)
+        
     except FileNotFoundError:
         print(f"Arquivo '{nome_entrada}' não encontrado. Verifique o caminho e tente novamente.")
     except ValueError:
