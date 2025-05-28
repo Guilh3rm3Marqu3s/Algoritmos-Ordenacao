@@ -1,0 +1,19 @@
+# Arquivos de cache do Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Ambiente virtual (opcional)
+venv/
+.venv/
+env/
+.env/
+
+# IDE (opcional)
+.idea/
+.vscode/
+
+# Arquivos do macOS
+.DS_Store
+**/.DS_Store
+
